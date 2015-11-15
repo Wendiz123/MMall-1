@@ -40,7 +40,10 @@ def signin(request):
                 login(request, user)
 
                 if 'next' in request.GET:
-                    return redirect(request.GET['next'])
+                    if request.GET['next']!='None':
+                        return redirect(request.GET['next'])
+                    else:
+                        return redirect('index')
                 else:
                     return redirect('index')
 
